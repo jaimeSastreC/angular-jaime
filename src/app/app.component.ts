@@ -15,9 +15,21 @@ export class AppComponent {
   appareilTwo = 'Frigo';
   appareilThree = 'Ordinateur';
 
-  appareilOneStatus = 'éteint';
-  appareilTwoStatus = 'allumé';
-  appareilThreeStatus = 'éteint';
+  private _appareilOneStatus = 'éteint';
+  private _appareilTwoStatus = 'allumé';
+  private _appareilThreeStatus = 'éteint';
+
+  set appareilOneStatus(value: string) {
+    this._appareilOneStatus = value;
+  }
+
+  set appareilTwoStatus(value: string) {
+    this._appareilTwoStatus = value;
+  }
+
+  set appareilThreeStatus(value: string) {
+    this._appareilThreeStatus = value;
+  }
 
   constructor() {
     setTimeout(
@@ -33,7 +45,7 @@ export class AppComponent {
     // on allume tous les appareils :
     this.appareilOneStatus = this.appareilStatus;
     this.appareilTwoStatus = this.appareilStatus;
-    this. appareilThreeStatus = this.appareilStatus;
+    this.appareilThreeStatus = this.appareilStatus;
   }
 
 }

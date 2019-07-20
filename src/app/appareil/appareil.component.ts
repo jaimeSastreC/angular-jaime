@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AppareilComponent implements OnInit {
 
   // appareilName:string = 'machine à laver';
+  // props peuvent être changés à partir de app.component, donc ensuite à partir d'une DB ou service
   @Input() appareilName: string;
   @Input() appareilStatus: string;
 

@@ -4,9 +4,9 @@
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <ul class="list-group">
-        <app-appareil [appareilName]="appareilOne" [appareilStatus]="appareilOneStatus"></app-appareil>
-        <app-appareil [appareilName]="appareilTwo" [appareilStatus]="appareilTwoStatus"></app-appareil>
-        <app-appareil [appareilName]="appareilThree" [appareilStatus]="appareilThreeStatus"></app-appareil>
+        <app-appareil [appareilName]="appareilOne" [appareilStatus]="_appareilOneStatus"></app-appareil>
+        <app-appareil [appareilName]="appareilTwo" [appareilStatus]="_appareilTwoStatus"></app-appareil>
+        <app-appareil [appareilName]="appareilThree" [appareilStatus]="_appareilThreeStatus"></app-appareil>
         <button class="btn btn-success"
                 [disabled]="!isAuth"
                 (click)="onAllumer()">Tout allumer</button>
