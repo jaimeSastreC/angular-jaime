@@ -1,10 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Cadre App: {{ title }}!
-  </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes appareils</h2>
+      <ul class="list-group">
+        <app-appareil [appareilName]="appareilOne" [appareilStatus]="appareilOneStatus"></app-appareil>
+        <app-appareil [appareilName]="appareilTwo" [appareilStatus]="appareilTwoStatus"></app-appareil>
+        <app-appareil [appareilName]="appareilThree" [appareilStatus]="appareilThreeStatus"></app-appareil>
+        <button class="btn btn-success"
+                [disabled]="!isAuth"
+                (click)="onAllumer()">Tout allumer</button>
+      </ul>
+    </div>
+  </div>
 </div>
-<h2></h2>
 
-<app-premier-component></app-premier-component>
-<router-outlet></router-outlet>
+<!--
+    <app-appareil appareilName="Machine à laver"></app-appareil>
+    <app-appareil appareilName="Frigo"></app-appareil>
+    <app-appareil appareilName="Ordinateur"></app-appareil>
+
+puis:
+    <app-appareil [appareilName]="appareilOne" [appareilStatus]="'allumé'"></app-appareil>
+    <app-appareil [appareilName]="appareilTwo" [appareilStatus]="'éteint'"></app-appareil>
+    <app-appareil [appareilName]="appareilThree" [appareilStatus]="'allumé'"></app-appareil>
+-->
