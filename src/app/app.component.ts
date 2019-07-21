@@ -1,37 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import {AppareilService} from './services/appareil.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  // title = 'Projet: angular-jaime';
-
+export class AppComponent implements OnInit {
   isAuth = false;
-  appareilStatus = 'éteint';
+  lastUpdate = new Date();
 
-  appareilOne = 'Machine à laver';
-  appareilTwo = 'Frigo';
-  appareilThree = 'Ordinateur';
+  client = new Promise(
+    (resolve, reject) => {
+      const client1 = 'Dufour';
+      setTimeout(
+        () => {
+          resolve(client1);
+        }, 2000
+      );
+    }
+  );
 
-  private _appareilOneStatus = 'éteint';
-  private _appareilTwoStatus = 'allumé';
-  private _appareilThreeStatus = 'éteint';
+  appareils: any[];
 
-  set appareilOneStatus(value: string) {
-    this._appareilOneStatus = value;
-  }
-
-  set appareilTwoStatus(value: string) {
-    this._appareilTwoStatus = value;
-  }
-
-  set appareilThreeStatus(value: string) {
-    this._appareilThreeStatus = value;
-  }
-
-  constructor() {
+  constructor(private appareilservice: AppareilService) {
     setTimeout(
       () => {
         this.isAuth = true;
@@ -39,14 +31,26 @@ export class AppComponent {
     );
   }
 
-  onAllumer() {
-    console.log('on allume!');
-    this.appareilStatus = 'allumé';
-    // on allume tous les appareils :
-    this.appareilOneStatus = this.appareilStatus;
-    this.appareilTwoStatus = this.appareilStatus;
-    this.appareilThreeStatus = this.appareilStatus;
+  ngOnInit(): void {
+    this.appareils = this.appareilservice.appareils;
   }
 
+  onAllumer() {
+    // console.log('on allume!');
+    this.appareilservice.switchOnAll();
+  };
+
+  onEteindre() {
+    this.appareilservice.switchOffAll();
+  }
 }
 
+/*
+
+onAllumer() {
+  console.log('on allume!');
+  this.appareils[0].status = 'allumé';
+  this.appareils[1].status = 'allumé';
+  this.appareils[2].status = 'allumé';
+}
+*/

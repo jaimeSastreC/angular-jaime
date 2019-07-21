@@ -1,26 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xl-12">
       <h2>Mes appareils</h2>
+      <p>mise à jour: {{lastUpdate | date: 'fullDate' | uppercase }} -- Client: {{client | async }}</p>
       <ul class="list-group">
-        <app-appareil [appareilName]="appareilOne" [appareilStatus]="_appareilOneStatus"></app-appareil>
-        <app-appareil [appareilName]="appareilTwo" [appareilStatus]="_appareilTwoStatus"></app-appareil>
-        <app-appareil [appareilName]="appareilThree" [appareilStatus]="_appareilThreeStatus"></app-appareil>
-        <button class="btn btn-success"
-                [disabled]="!isAuth"
-                (click)="onAllumer()">Tout allumer</button>
+        <app-appareil *ngFor= "let appareil of appareils; let i = index"
+                      [appareilIndex]="i"
+                      [appareilName]="appareil.name"
+                      [appareilStatus]="appareil.status"
+        ></app-appareil>
       </ul>
+
+      <!--[disabled]="!isAuth"-->
+      <button class="btn btn-success"
+              (click)="onAllumer()">
+        Tout allumer
+      </button>
+      <button class="btn btn-danger"
+              (click)="onEteindre()">
+        Tout éteindre
+      </button>
     </div>
   </div>
 </div>
 
 <!--
+première option simple:
     <app-appareil appareilName="Machine à laver"></app-appareil>
     <app-appareil appareilName="Frigo"></app-appareil>
     <app-appareil appareilName="Ordinateur"></app-appareil>
 
-puis:
+puis par le Typescript:
     <app-appareil [appareilName]="appareilOne" [appareilStatus]="'allumé'"></app-appareil>
     <app-appareil [appareilName]="appareilTwo" [appareilStatus]="'éteint'"></app-appareil>
     <app-appareil [appareilName]="appareilThree" [appareilStatus]="'allumé'"></app-appareil>

@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PremierComponentComponent } from './premier-component/premier-component.component';
 import { AppareilComponent } from './appareil/appareil.component';
+// ajouter pour bidirectionnal binding
 import { FormsModule} from '@angular/forms';
+import { AppareilService} from './services/appareil.service';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,11 @@ import { FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
   ],
-  providers: [],
+  providers: [
+    AppareilService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

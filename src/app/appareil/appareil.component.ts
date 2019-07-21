@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {AppareilService} from '../services/appareil.service';
 
 @Component({
   selector: 'app-appareil',
@@ -11,10 +12,11 @@ export class AppareilComponent implements OnInit {
   // props peuvent être changés à partir de app.component, donc ensuite à partir d'une DB ou service
   @Input() appareilName: string;
   @Input() appareilStatus: string;
+  @Input() appareilIndex: number;
 
   // appareilStatus: string = 'éteint';
 
-  constructor() { }
+  constructor(private appareilService: AppareilService) { }
 
   ngOnInit() {
   }
@@ -28,9 +30,21 @@ export class AppareilComponent implements OnInit {
     return this.appareilStatus;
   }
 
-  setAppareilStatus(statut) {
-    this.appareilStatus = 'allumé';
+  getColor() {
+    if (this.appareilStatus === 'éteint') {
+      return 'red';
+    } else if (this.appareilStatus) {
+      return 'green';
+    }
   }
 
+  onSwitchOn() {
+    this.appareilService.switchOnAppareil(this.appareilIndex);
+    console.log('OOOOOOOOOOOOOOOO');
+  }
+
+  onSwitchOff() {
+    this.appareilService.switchOffAppareil(this.appareilIndex);
+  }
 
 }
