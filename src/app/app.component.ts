@@ -41,7 +41,9 @@ export class AppComponent implements OnInit {
   };
 
   onEteindre() {
-    this.appareilservice.switchOffAll();
+    if(confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')){
+      this.appareilservice.switchOffAll();
+    }
   }
 }
 

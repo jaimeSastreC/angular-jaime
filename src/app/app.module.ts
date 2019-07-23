@@ -8,12 +8,16 @@ import { AppareilComponent } from './appareil/appareil.component';
 // ajouter pour bidirectionnal binding
 import { FormsModule} from '@angular/forms';
 import { AppareilService} from './services/appareil.service';
+import { AuthComponent } from './auth/auth.component';
+import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PremierComponentComponent,
-    AppareilComponent
+    AppareilComponent,
+    AuthComponent,
+    AppareilViewComponent
   ],
   imports: [
     BrowserModule,
