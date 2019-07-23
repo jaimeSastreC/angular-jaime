@@ -1,16 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-md    navbar-light bg-light">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
       <ul class="navbar-nav">
         <li routerLinkActive="nav-item active" ><a class="nav-link" routerLink="auth">authentification</a></li>
         <li routerLinkActive="nav-item active" ><a class="nav-link" routerLink="appareils">appareils</a></li>
       </ul>
   </nav>
 </div>
-<div class="container">
+<div class="container d-flex ">
+
   <div class="row">
-    <!--<app-appareil-view></app-appareil-view>-->
     <router-outlet></router-outlet>
+    <!--<app-appareil-view></app-appareil-view>-->
   </div>
 </div>
 
