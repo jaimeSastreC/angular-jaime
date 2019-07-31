@@ -8,6 +8,7 @@
   <h4 >Appareil : {{getAppareilName()}} |
     <span [ngStyle]="{color: getColor()}"> état: {{getAppareilStatus()}}</span>
   </h4>
+  <a [routerLink]="[id ]">Détail - </a>
   <button class="btn btn-success"
           (click) = "onSwitchOn()"
           [disabled]= "appareilStatus=== 'allumé' ">allumer</button>

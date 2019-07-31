@@ -8,17 +8,21 @@ import {AppareilService} from '../services/appareil.service';
 })
 export class AppareilComponent implements OnInit {
 
+  secondes: number;
+
   // appareilName:string = 'machine à laver';
   // props peuvent être changés à partir de app.component, donc ensuite à partir d'une DB ou service
   @Input() appareilName: string;
   @Input() appareilStatus: string;
   @Input() appareilIndex: number;
+  @Input() id: number;
 
   // appareilStatus: string = 'éteint';
 
   constructor(private appareilService: AppareilService) { }
 
   ngOnInit() {
+
   }
 
 
