@@ -24,7 +24,9 @@ export class AppareilService {
 
   emitAppareilSubject() {
     // émet ce qu'on lui passe comme agument - rappel: slice créé copie et envoie liste des appareils
-    this.appareilSubject.next(this.appareils.slice());
+    this.appareilSubject.next(
+      this.appareils.slice()
+    );
   }
 
   getAppareilById(id: number) {

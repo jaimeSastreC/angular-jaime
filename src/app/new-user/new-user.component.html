@@ -1,0 +1,34 @@
+<div class="offset-md-2 col-md-8">
+  <h1>Veuillez vous inscrire en tant que membre: </h1>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <div class="form-group">
+      <label for="firstName">
+        Prénom:
+      </label>
+      <input type="text" id="firstName" class="form-control" formControlName="firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">
+        Nom:
+      </label>
+      <input type="text" id="lastName" class="form-control" formControlName="lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">
+        Adresse email:
+      </label>
+      <input type="email" id="email" class="form-control" formControlName="email" required>
+    </div>
+    <div class="form-group">
+      <label for="drinkPreference">
+        Quelle boisson préférez-vous?
+      </label>
+      <select id="drinkPreference" class="form-control" formControlName="drinkPreference">
+        <option value="Coca">Coca</option>
+        <option value="Pepsi">Pepsi</option>
+        <option value="Schweppes">Schweppes</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" >Soumettre</button>
+  </form>
+</div>
