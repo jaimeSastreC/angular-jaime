@@ -7,25 +7,24 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-
-        <a class="nav-link"  routerLinkActive="nav-item active"  routerLink="auth">authentification</a>
-        <a class="nav-link" routerLinkActive="nav-item active" routerLink="appareils">appareils</a>
-
+      <a class="nav-link"  routerLinkActive="nav-item active"  routerLink="auth">authentification</a>
+      <a class="nav-link" routerLinkActive="nav-item active" routerLink="appareils">appareils</a>
+      <a class="nav-link" routerLinkActive="nav-item active" routerLink="edit">Nouvel appareil</a>
     </div>
   </div>
+
   <ul class="nav navbar-nav navbar-right">
     <li>
       <span style="color: #fff;">Vous êtes connecté depuis {{secondes}} secondes !</span>
     </li>
   </ul>
 </nav>
-  <div class="container d-flex ">
-
-    <div class="row">
-      <router-outlet></router-outlet>
-      <!--<app-appareil-view></app-appareil-view>-->
-    </div>
+<div class="container d-flex ">
+  <div class="row">
+    <router-outlet></router-outlet>
+    <!--<app-appareil-view></app-appareil-view>-->
   </div>
+</div>
 
 
 <!--
