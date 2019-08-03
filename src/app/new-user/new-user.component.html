@@ -29,6 +29,13 @@
         <option value="Schweppes">Schweppes</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary" >Soumettre</button>
+    <div formArrayName="hobbies">
+      <h3>Vos Hobbies:</h3>
+      <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+        <input type="text" class="form-control" [formControlName]="i">
+      </div>
+      <button type="button" class="btn btn-success" (click)="onAddHobby()">Ajouter un Hobby</button>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Soumettre</button>
   </form>
 </div>
